@@ -6,9 +6,9 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExaLinkRebatesAndFees.Utility.CommonHelpers
+namespace test_automation_useful_features
 {
-    public class FileHelper
+    public static class FileHelper
     {
         /// <summary>
         /// Reads JSON file content

@@ -2,8 +2,9 @@
 using System.Data;
 using System.Data.Common;
 using Npgsql;
+using test_automation_useful_features.Helpers;
 
-namespace test_automation_useful_features.Helpers
+namespace test_automation_useful_features
 {
     public class PostgreSqlDbClient : IDisposable
     {
