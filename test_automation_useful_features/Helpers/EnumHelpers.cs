@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Reflection;
 
-namespace ExaLinkRebatesAndFees.Utility.CommonHelpers
+namespace test_automation_useful_features.Helpers
 {
     public static class EnumHelpers
     {
@@ -15,11 +15,8 @@ namespace ExaLinkRebatesAndFees.Utility.CommonHelpers
             return attributes.Length > 0 ? attributes[0].Description : value.ToString();
         }
 
-        public static Dictionary<string, string> GetEnumOptionsDescriptions<T>() where T : struct
+        public static Dictionary<string, string> GetEnumOptionsDescriptionsAsDict<T>() where T : Enum
         {
-            Type enumType = typeof(T);
-            if (enumType.BaseType != typeof(Enum))
-                throw new ArgumentException($"{typeof(T)} is not System.Enum");
             Dictionary<string, string> enumValList = new Dictionary<string, string>();
             foreach (object value in Enum.GetValues(typeof(T)))
             {
@@ -28,11 +25,6 @@ namespace ExaLinkRebatesAndFees.Utility.CommonHelpers
                 enumValList.Add(value.ToString(), attributes.Length > 0 ? attributes[0].Description : string.Empty);
             }
             return enumValList;
-        }
-
-        internal static string GetEnumOptionDescription(object closedProjectTabClolumnHeaders)
-        {
-            throw new NotImplementedException();
         }
     }
 }
