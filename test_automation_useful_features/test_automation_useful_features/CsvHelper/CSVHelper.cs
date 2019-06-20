@@ -1,16 +1,19 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using CsvHelper;
 
-namespace test_automation_useful_features.Helpers.CSVHelper
+namespace test_automation_useful_features.CsvHelper
 {
     public static class CsvFileHelper
     {
         // more details here https://joshclose.github.io/CsvHelper/getting-started
         public static IEnumerable<T> ReadObjFromCsv<T>(string fullFilePath, string delimiter = ",")
         {
-            using (var reader = new StreamReader(fullFilePath))
+            using (var reader = new StreamReader(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ??
+                throw new InvalidOperationException(), fullFilePath)))
             using (var csvReader = new CsvReader(reader))
             {
                 csvReader.Configuration.Delimiter = delimiter;
@@ -21,7 +24,8 @@ namespace test_automation_useful_features.Helpers.CSVHelper
 
         public static void WriteObjToCsv<T>(IEnumerable<T> objects, string fullFilePath, string delimiter = ",")
         {
-            using (var writer = new StreamWriter(fullFilePath))
+            using (var writer = new StreamWriter(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ??
+                throw new InvalidOperationException(), fullFilePath)))
             using (var csvWriter = new CsvWriter(writer))
             {
                 csvWriter.Configuration.Delimiter = delimiter;

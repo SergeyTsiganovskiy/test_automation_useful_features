@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 
-namespace test_automation_useful_features.Helpers
+namespace test_automation_useful_features
 {
     public static class DataTableHelper
     {

@@ -7,8 +7,9 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using RestSharp;
 using RestSharp.Serialization.Json;
+using test_automation_useful_features.Helpers;
 
-namespace test_automation_useful_features.Helpers
+namespace test_automation_useful_features
 {
     public class ApiCallsClient
     {

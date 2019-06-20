@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
 using test_automation_useful_features;
+using test_automation_useful_features.CsvHelper;
 using test_automation_useful_features.Helpers.CSVHelper;
 
 namespace TestProject
@@ -20,7 +21,9 @@ namespace TestProject
             };
 
             var v = CsvFileHelper.ReadObjFromCsv<Server>(
-                @"F:\ASP.NET CORE STUDY PROJECTs\test_automation_useful_features\test_automation_useful_features\TestProject\testfile.csv", "|");
+                @"testfile.csv", "|");
+
+            CsvFileHelper.WriteObjToCsv(v, "E:\\qwert.csv", ",");
         }
 
         [Test]

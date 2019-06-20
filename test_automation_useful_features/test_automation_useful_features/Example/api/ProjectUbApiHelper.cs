@@ -1,16 +1,7 @@
-﻿
-using ExaLinkRebatesAndFees.Utility.CommonHelpers;
-using Newtonsoft.Json;
-using RestSharp;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Threading;
-using test_automation_useful_features.Helpers;
+﻿using System.Collections.Generic;
 using test_automation_useful_features.Helpers.Examples.API;
 
-namespace ExaLinkRebatesAndFees.Utility.UB.API
+namespace test_automation_useful_features.Example.api
 {
     public class ProjectUbApiHelper : BaseApiHelper
     {

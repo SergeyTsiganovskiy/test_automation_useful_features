@@ -17,10 +17,8 @@ namespace test_automation_useful_features
         /// <returns>JSON string that was read from a file</returns>
         public static string ReadFileContent(string fileLocation)
         {
-            return File.ReadAllText(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? throw new InvalidOperationException(),
-                fileLocation));
+            return File.ReadAllText(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? throw new InvalidOperationException(), fileLocation));
         }
-        
 
         /// <summary>
         /// Reads JSON file content asynchronously
@@ -29,8 +27,7 @@ namespace test_automation_useful_features
         /// <returns>Task with JSON string that was read from a file</returns>
         public static async Task<string> ReadFileContentAsync(string fileLocation)
         {
-            using (var reader = File.OpenText(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? throw new InvalidOperationException(),
-                fileLocation)))
+            using (var reader = File.OpenText(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? throw new InvalidOperationException(), fileLocation)))
             {
                 return await reader.ReadToEndAsync();
             }
@@ -56,9 +53,9 @@ namespace test_automation_useful_features
         /// <param name="info">string</param>
         public static void WriteLineWithClearBefore(string fileLocation, string info, bool flag = true)
         {
-            ClearFile(fileLocation);
             using (StreamWriter writer = new StreamWriter(fileLocation, append: flag))
             {
+                writer.Write(string.Empty);
                 writer.WriteLine(info);
             }
         }
